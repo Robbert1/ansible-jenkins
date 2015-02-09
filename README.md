@@ -21,5 +21,5 @@ After this setup is done you can issue the ansible-playbook command listed above
 ## Copyright and license
 
 This git repository contains modified copyrighted opensource work from:
-[snowplow]: http://snowplowanalytics.com https://github.com/snowplow/ansible-playbooks (APACHE V2 licensed)
-[Jeff Geerling]: https://github.com/geerlingguy https://github.com/geerlingguy/ansible-role-jenkins (MIT / BSD licensed)
+[snowplow]http://snowplowanalytics.com https://github.com/snowplow/ansible-playbooks (APACHE V2 licensed)
+[Jeff Geerling]https://github.com/geerlingguy https://github.com/geerlingguy/ansible-role-jenkins (MIT / BSD licensed)
