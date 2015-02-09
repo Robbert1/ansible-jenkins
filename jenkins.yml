@@ -1,21 +1,23 @@
 - hosts: jenkins
   vars:
-    hostname: jenkins
+    hostname: localhost
     postgres_version: 9.4
     gradle_version: 2.2.1
     oracle_java_version: 8
     node_version: 0.12.0
     maven_version: 3.2.5
   remote_user: vagrant
+  hostname: jenkins
   roles:
     - { role: base }
     - { role: oracle-java }
     - { role: gradle }
     - { role: maven }
     - { role: postgres }
-    - { role: nodejs}
+    - { role: nodejs }
+    - { role: grunt }
 #    - { role: aws-cli}
 #    - { role: aws-emr-cli}
-#    - { role: sbt}
-#    - { role: scala}
+    - { role: sbt}
+    - { role: scala}
     - { role: jenkins }
