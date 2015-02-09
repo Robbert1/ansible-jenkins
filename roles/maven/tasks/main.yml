@@ -1,0 +1,17 @@
+---
+- name: Install | Download Maven
+  get_url: dest={{ansible_cache_dir}} url={{maven_download_location}}
+  sudo: yes
+
+- name: Install | Extract Maven
+  shell: tar xzf {{ansible_cache_dir}}/{{maven_tarball}} -C {{software_install_dir}} creates={{software_install_dir}}/apache-maven-{{ maven_version }}
+  sudo: yes
+  
+- name: Configure | Add Maven executable symlinks to path
+  tags: maven
+  sudo: yes
+  file:
+    state=link
+    force=true
+    src={{ software_install_dir }}/apache-maven-{{ maven_version }}/bin/mvn
+    dest={{ user_binaries }}/mvn
