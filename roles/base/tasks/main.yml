@@ -12,6 +12,7 @@
       apt: pkg={{ item }} state=latest
       tags: [packages]
       with_items:
+        - make
         - curl
         - vim
         - libxslt1-dev 
@@ -21,6 +22,8 @@
         - python-psycopg2
         - mercurial
         - git
+        - ruby
+        - graphviz
 
     - name: Ensure that ansible_cache_dir directory exists
       file: path={{ ansible_cache_dir }} state=directory

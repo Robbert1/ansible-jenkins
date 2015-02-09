@@ -7,5 +7,5 @@
   sudo: yes
 
 - name: Add key for Postgres repo
-  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present validate_certs=no
   sudo: yes

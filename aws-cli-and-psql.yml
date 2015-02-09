@@ -1,7 +1,0 @@
----
- - hosts: vagrant
-   remote_user: vagrant
-   roles:
-   - aws-cli
-   - {role: postgres, install_postgres_server: false }
- 
