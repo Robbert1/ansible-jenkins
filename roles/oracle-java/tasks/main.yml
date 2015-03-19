@@ -1,27 +1,24 @@
----
-  - name: Install PyCurl (required for apt-repository updates)
-    apt: pkg=python-pycurl
-    sudo: yes
+--- 
+- name: Creates directory
+  file: path={{jvm_folder}} state=directory
+  sudo: yes
 
-  - name: Install Oracle Java Repo Installer Repository
-    apt_repository: repo=ppa:webupd8team/java update-cache=yes 
-    sudo: yes
+- name: Download Java
+  command: "wget -q -O {{java_archive_path}} --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} creates={{java_archive_path}}"
+  sudo: yes
 
-  - name: Wizardry to bypass the Oracle License File prompt
-    shell: echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-    sudo: yes
-
-  - name: Install Oracle Java 6
-    apt: pkg=oracle-java6-installer
-    when: oracle_java_version == 6
-    sudo: yes
-
-  - name: Install Oracle Java 7
-    apt: pkg=oracle-java7-installer
-    when: oracle_java_version == 7
-    sudo: yes
-
-  - name: Install Oracle Java 8
-    apt: pkg=oracle-java8-installer
-    when: oracle_java_version == 8
-    sudo: yes
+- name: Unpack archive
+  command: "tar -zxf {{java_archive_path}} -C {{jvm_folder}} creates={{java_name}}"
+  sudo: yes
+  
+- name: Fix ownership
+  file: state=directory path={{java_name}} owner=root group=root recurse=yes
+  sudo: yes
+  
+- name: Make Java available for system
+  command: 'alternatives --install "/usr/bin/java" "java" "{{java_name}}/bin/java" 2000'
+  sudo: yes
+  
+- name: Clean up
+  file: state=absent path={{java_archive_path}}
+  sudo: yes

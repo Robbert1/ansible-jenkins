@@ -4,7 +4,7 @@
 
 Repository with everything needed for installing a complete jenkins server with ansible.
 
-run `ansible-playbook jenkins` from inside this directory to remote-install a jenkins server on one or more machines known as `jenkins` to ansible.
+run `ansible-playbook jenkins.yml` from inside this directory to remote-install a jenkins server on one or more machines known as `jenkins` to ansible.
 
 ## Local Testing with Vagrant
 

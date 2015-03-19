@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "hashicorp/precise32"
+  config.vm.box = "fillup/centos-6.5-i386-minimal"
   config.vm.network "forwarded_port", guest: 8080, host: 8000
   config.vm.define "jenkins" do |jenkins|
   end

@@ -1,7 +1,7 @@
 ---
 - name: Ensure unzip is installed
   sudo: yes
-  apt: pkg=unzip state=installed
+  yum: pkg=unzip state=installed
   tags: [yuic]
 
 - name: Ensure YUI Compressor is downloaded

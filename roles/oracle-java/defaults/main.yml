@@ -1,2 +1,8 @@
 ---
-oracle_java_version: 8  # Default to installing Java 8 unless 6 or 7 is explicitly asked for
+jvm_folder: /usr/lib/jvm
+java_update: 40
+java_build: 26
+java_name: "{{jvm_folder}}/jdk1.8.0_{{java_update}}"
+java_archive: "jdk-8u{{java_update}}-linux-i586.tar.gz"
+java_archive_path: "{{jvm_folder}}/{{java_archive}}"
+download_url: "http://download.oracle.com/otn-pub/java/jdk/8u{{java_update}}-b{{java_build}}/{{java_archive}}"
