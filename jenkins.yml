@@ -10,9 +10,9 @@
 #  hostname: jenkins
   roles:
     - { role: base }
-    - { role: oracle-java }
-    - { role: gradle }
-    - { role: maven }
+#    - { role: oracle-java }
+#    - { role: gradle }
+#    - { role: maven }
     - { role: postgres }
     - { role: nodejs }
     - { role: grunt }

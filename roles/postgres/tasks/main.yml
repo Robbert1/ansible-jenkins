@@ -9,15 +9,18 @@
   - postgresql
 
 - name: Initiate database
+  sudo: yes
   command: service postgresql initdb
           creates=/var/lib/pgsql/data/postgresql.conf
 
 - name: Start PostgreSQL and enable at boot
+  sudo: yes
   service: name=postgresql
           enabled=yes
           state=started
 
 - name: Ensure PostgreSQL is listening on all localhost
+  sudo: yes
   lineinfile: dest=/var/lib/pgsql/data/postgresql.conf
     regexp='^#?listen_addresses\s*='
     line="listen_addresses = '127.0.0.1'"
@@ -29,3 +32,4 @@
               line='host all all 127.0.0.1/32 md5'
               insertbefore=BOF
   notify: restart postgresql
+  sudo: yes
