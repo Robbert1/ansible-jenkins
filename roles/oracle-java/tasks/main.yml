@@ -15,9 +15,9 @@
   file: state=directory path={{java_name}} owner=root group=root recurse=yes
   sudo: yes
   
-- name: Make Java available for system
-  command: 'alternatives --install "/usr/bin/java" "java" "{{java_name}}/bin/java" 2000'
-  sudo: yes
+#- name: Make Java available for system
+#  command: 'alternatives --install "/usr/bin/java" "java" "{{java_name}}/bin/java" 2000'
+#  sudo: yes
   
 - name: Clean up
   file: state=absent path={{java_archive_path}}

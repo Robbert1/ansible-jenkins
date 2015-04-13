@@ -6,18 +6,17 @@
     oracle_java_version: 8
     node_version: 0.12.0
     maven_version: 3.2.5
-  remote_user: vagrant
-#  hostname: jenkins
+  remote_user: "310192123"
   roles:
     - { role: base }
-#    - { role: oracle-java }
-#    - { role: gradle }
-#    - { role: maven }
+    - { role: oracle-java }
+    - { role: gradle }
+    - { role: maven }
     - { role: postgres }
-    - { role: nodejs }
-    - { role: grunt }
+#    - { role: nodejs }
+#    - { role: grunt }
 #    - { role: aws-cli}
 #    - { role: aws-emr-cli}
-    - { role: sbt}
-    - { role: scala}
+#    - { role: sbt}
+#    - { role: scala}
     - { role: jenkins }

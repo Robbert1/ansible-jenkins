@@ -24,8 +24,8 @@
         - ruby
         - graphviz
         - libselinux-python
-        - gcc-c++ 
-        - openssl-devel
+#        - gcc-c++ 
+#        - openssl-devel
 
     - name: Ensure that ansible_cache_dir directory exists
       file: path={{ ansible_cache_dir }} state=directory
